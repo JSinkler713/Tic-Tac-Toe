@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
+let title = document.createElement('h1');
+title.innerText = "Tic-Tac-Toe";
+document.body.prepend(title);
 
 function Square(props) {
     return (
