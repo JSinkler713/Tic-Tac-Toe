@@ -4,18 +4,17 @@ import './index.css';
 
 
 
-class Square extends React.Component {
-  render() {
+function Square(props) {
     return (
       <button
 	className = "square"
-	onClick={() => this.props.onClick()}
+	onClick={props.onClick}
       >
-        {this.props.value}
+        {props.value}
       </button>
-    );
-  }
+    )
 }
+
 
 class Board extends React.Component {
   constructor(props) {
@@ -26,6 +25,7 @@ class Board extends React.Component {
   }
   
   handleClick(i) {
+//using slice makes a copy of the data, this makes it so we avoid mutation and can potentially go back and look at history of changes or previous versions
     const squares = this.state.squares.slice();
     squares[i] = 'X';
     this.setState({squares});
